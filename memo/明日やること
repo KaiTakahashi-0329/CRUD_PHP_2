@@ -1,0 +1,67 @@
+明日やること
+＝＝＝＝＝＝＝＝＝＝＝＝＝済
+    ・list.phpで表示される本文に文字数制限をかける
+　■ 参考
+　  ・https://spreadsheep.net/php%E3%81%A7%E6%96%87%E5%AD%97%E6%95%B0%E3%82%92%E5%88%B6%E9%99%90%E3%81%97%E3%80%81%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%80%8E%E3%80%8F%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%E3%82%B3/
+＝＝＝＝＝＝＝＝＝＝＝＝＝済
+
+・編集画面の実装
+　■ 必要項目
+　・edit.php 編集画面
+　・edit_confirm.php 編集確認画面
+　・edit_complete.php 編集完了画面
+
+==============================================================
+
+・$_SERVER['REQUEST_METHOD'];の挙動について
+・以下項目調べる
+
+これはダメ
+<?php
+
+$url = $_SERVER['HTTP_REFERER'];
+
+function decision_referer($referer) {
+    var_dump($url);
+    
+    if(isset($url) && strpos($url, $referer) !== false) {
+        var_dump('if');
+        return $referer;
+    }
+}
+
+$referer_from_delete_confirm = decision_referer('delete_confirm.php');
+
+?>
+
+これはよい
+<?php
+
+function decision_referer($referer) {
+
+    $url = $_SERVER['HTTP_REFERER'];
+    if(isset($url) && strpos($url, $referer) !== false) {
+        var_dump('if');
+        return $referer;
+    }
+}
+
+$referer_from_delete_confirm = decision_referer('delete_confirm.php');
+?>
+
+
+これも良い
+<?php
+
+function decision_referer($referer, $url) {
+    
+    // var_dump($referer);
+    var_dump($url);
+    
+    if(isset($url) && strpos($url, $referer) !== false) {
+        var_dump('if');
+        return $referer;
+    }
+}
+$referer_from_delete_confirm = decision_referer('delete_confirm.php', $url);
+?>

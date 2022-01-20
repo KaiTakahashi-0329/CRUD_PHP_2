@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メモ入力画面</title>
+</head>
+<body>
+    <h1>メモ入力画面</h1>
+    <a href="list.php">入力一覧画面へ</a>
+    <hr>
+
+    <form action="index.php" method="POST">
+        <label>
+            名前：
+            <input type="text" name="name">
+        </label>
+        <label>
+            年齢：
+            <input type="text" name="age" maxlength="3">
+        </label>
+        <label for="textarea">本文：</label>
+        <textarea name="text" id="textarea" cols="30" rows="10" placeholder="テキストを入れてください"></textarea>
+        <button type="submit">送信する</button>
+    </form>
+    
+    <style>
+        label, textarea {
+            display: block;
+        }
+    </style>
+</body>
+</html>
