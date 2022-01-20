@@ -2,13 +2,14 @@
 CRUDの基本的な使い方を学ぶために作成
  
 # Logic
-基本的なファイル説明
-index.html 入力画面    
-index.php index.phpで入力された値の確認画面 不備があれば戻れば修正。問題なければ「登録する」でcomplete.phpに  
-complete.phpでDBに保存 DBとのやりとりはPDOオブジェクトを使用  
-list.php　投稿の一覧画面  
-edit.php 投稿の修正画面  
-edit_confirm.php edit.phpで入力された値の確認画面 不備があれば戻れば修正。問題なければ「登録する」でedit_complete.phpに基本的にはdelete系ファイルも同じ構造  
+基本的なファイル説明  
+`index.html`： 入力画面    
+`index.php`： `index.html`で入力された値の確認画面 不備があれば戻れば修正。問題なければ「登録する」でcomplete.phpに
+`complete.php`： DBに保存 DBとのやりとりはPDOオブジェクトを使用  
+`list.php`： 投稿の一覧画面  
+`edit.php`： 投稿の修正画面  
+`edit_confirm.php`： `edit.php`で入力された値の確認画面 不備があれば戻れば修正。問題なければ「登録する」で`edit_complete.php`に　　
+基本的にはdelete系ファイルも同じ構造  
  
 # その他
 反省点はいくつかあったので次に生かしたい。  
